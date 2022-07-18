@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
 
             if (this.getAttribute("data-type") === "submit") {
-                startGame();
+                populateQuestion();
             } else {
-                alert("Clicked reset");
+                resetGame();
             }
         })
     }
@@ -16,64 +16,40 @@ document.addEventListener("DOMContentLoaded", function () {
     startGame();
 })
 
-
 function startGame() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
 
     if (currentQuestion === "0") {
-        currentQuestion.innerText = "1";
-        populateQuestion(1);
-
-    } else if (currentQuestion === "1") {
-        currentQuestion.innerText = "2";
-        populateQuestion(2);
-
-    } else if (currentQuestion === "2") {
-        currentQuestion.innerText = "3";
-        populateQuestion(3);
-
-    } else if (currentQuestion === "3") {
-        currentQuestion.innerText = "4";
-        populateQuestion(4);
-
-    } else if (currentQuestion === "4") {
-        currentQuestion.innerText = "5";
-        populateQuestion(5);
+        populateQuestion();
     }
-
 }
 
-function populateQuestion(question) {
+function populateQuestion() {
 
-    let currentQuestion;
+    let currentQuestion = document.getElementById("question-number").innerText;
     let newQuestion;
 
-    switch (question) {
-        case 1:
-            alert("question1")
+    switch (currentQuestion) {
+        case "0":
             currentQuestion = "1";
-            listOfQuestions(newQuestion);
+            //listOfQuestions(newQuestion);
             break;
-        case 2:
-            alert("question2")
+        case "1":
             currentQuestion = "2";
-            listOfQuestions(newQuestion);
+            //listOfQuestions(newQuestion);
             break;
-        case 3:
-            alert("question3")
+        case "2":
             currentQuestion = "3";
-            listOfQuestions(newQuestion);
+            //listOfQuestions(newQuestion);
             break;
-        case 4:
-            alert("question4")
+        case "3":
             currentQuestion = "4";
-            listOfQuestions(newQuestion);
+            //listOfQuestions(newQuestion);
             break;
-        case 5:
-            alert("question5")
+        case "4":
             currentQuestion = "5";
-            listOfQuestions(newQuestion);
+            //listOfQuestions(newQuestion);
             break;
         default:
             break;
@@ -94,6 +70,15 @@ function updateScore() {
 
 function listOfQuestions() {
 
-    
+    let questionToReturn;
 
+    let question1 = "question1";
+
+    return questionToReturn;
+}
+
+function resetGame() {
+    document.getElementById("question-number").innerText = "0";
+    document.getElementById("correct").innerText = "0";
+    document.getElementById("incorrect").innerText = "0";
 }

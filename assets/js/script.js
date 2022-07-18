@@ -25,6 +25,7 @@ function startGame() {
     }
 }
 
+/** get the current question number and change it to the next */
 function populateQuestion() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
@@ -32,34 +33,39 @@ function populateQuestion() {
 
     switch (currentQuestion) {
         case "0":
-            currentQuestion = "1";
-            //listOfQuestions(newQuestion);
+            document.getElementById("question-number").innerText = "1";
+            newQuestion = listOfQuestions();
             break;
         case "1":
-            currentQuestion = "2";
-            //listOfQuestions(newQuestion);
+            document.getElementById("question-number").innerText = "2";
+            newQuestion = listOfQuestions();
             break;
         case "2":
-            currentQuestion = "3";
-            //listOfQuestions(newQuestion);
+            document.getElementById("question-number").innerText = "3";
+            newQuestion = listOfQuestions();
             break;
         case "3":
-            currentQuestion = "4";
-            //listOfQuestions(newQuestion);
+            document.getElementById("question-number").innerText = "4";
+            newQuestion = listOfQuestions();
             break;
         case "4":
-            currentQuestion = "5";
-            //listOfQuestions(newQuestion);
+            document.getElementById("question-number").innerText = "5";
+            newQuestion = listOfQuestions();
+            break;
+        case "5":
+            document.getElementById("question-number").innerText = "5";
+            newQuestion = listOfQuestions();
             break;
         default:
             break;
     }
-
-    document.getElementById("question-number").innerText = currentQuestion;
+    console.log(newQuestion);
     document.getElementById("question-text").innerText = newQuestion;
 }
 
 function checkAnswer() {
+
+    let currentQuestion = document.getElementById("question-number").innerText;
 
 }
 
@@ -70,9 +76,31 @@ function updateScore() {
 
 function listOfQuestions() {
 
+    let currentQuestion = document.getElementById("question-number").innerText;
     let questionToReturn;
 
-    let question1 = "question1";
+    let questions = ["question1", "question2"]
+
+    switch (currentQuestion) {
+        case "1":
+            questionToReturn = "what do they call the invisible power that binds the galaxy together?";
+            break;
+        case "2":
+            questionToReturn = "C-3P0 is fluent in how many languages?";
+            break;
+        case "3":
+            questionToReturn = "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?";
+            break;
+        case "4":
+            questionToReturn = "What is the name of Yoda’s home?";
+            break;
+        case "5":
+            questionToReturn = "Who is the young Jedi Knight who becomes Darth Vader?";
+            break;
+        default:
+            break;
+    }
+    console.log(questionToReturn);
 
     return questionToReturn;
 }
@@ -81,4 +109,5 @@ function resetGame() {
     document.getElementById("question-number").innerText = "0";
     document.getElementById("correct").innerText = "0";
     document.getElementById("incorrect").innerText = "0";
+    populateQuestion();
 }

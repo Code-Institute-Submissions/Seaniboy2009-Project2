@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lanf="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>StarWars Quiz</title>
+
+</head>
+
+<body>
+    <h1 class="heading">StarWars Quiz</h1>
+
+    <!-- Main holder for the game window-->
+    <div class="main-area">
+        <div class="image-area bx-bo">
+            <img class="image-main" src="assets/images/darth-vader.jpg" alt="image of darth vader">
+        </div>
+
+        <!-- area for the questions title and the questions-->
+        <div class="question-area bx-bo">
+            <span id="question-heading">
+                <h2>Question <span id="question-number">1</span>!</h2>
+            </span>
+            <span is="question">
+                <p>Question: What is Baby Yoda's real name?</p>
+            </span>
+        </div>
+
+        <!-- answer area -->
+        <div class="answer-area bx-bo">
+            <label for="answer1" id="answer1-text">Answer 1</label>
+            <input type="radio" name="answer" id="answer1">
+            <br>
+            <label for="answer2" id="answer2-text">Answer 2</label>
+            <input type="radio" name="answer" id="answer2">
+        </div>
+
+        <!--area for user selecting answer then submitting and reseting the quiz-->
+        <div class="answer-area bx-bo">
+            <button data-type="reset">Click to reset quiz</button>
+            <button data-type="submit">Click to confirm answer</button>
+        </div>
+    </div>
+
+    <!---Score area for displaying current correct and incorrect answers-->
+    <div class="score-area">
+
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>

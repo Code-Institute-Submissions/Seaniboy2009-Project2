@@ -1,0 +1,51 @@
+body {
+    background-color: #b1b1b1;
+    color: #3d3d3d;
+    text-align: center;
+}
+
+h1 {
+    font-size: 200%;
+    padding: 1%;
+}
+
+.image-main {
+    max-height: 30%;
+    max-width: 30%;
+    padding: 1%;
+}
+
+/* main style for the holding container(div) of the game area */
+.main-area {
+    background-color: #b1b1b1;
+    border: 2px solid #000000;
+    max-width: 65%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* style for divs in the main game area, to give them equal space and style*/
+.bx-bo {
+    max-height: 30%;
+    padding: 1%;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.answer-area {
+    max-height: 30%;
+    max-width: 30%;
+    padding: 1%;
+}
+
+button {
+    background-color: #b1b1b1;
+    color: #3d3d3d;
+}
+
+button:hover {
+    background-color: #3d3d3d;
+    color: #b1b1b1;
+}

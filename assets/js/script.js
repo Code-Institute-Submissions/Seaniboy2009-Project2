@@ -198,26 +198,26 @@ function resetGame() {
 let questions = [{
         question: "what do they call the invisible power that binds the galaxy together?",
         answer: "The Force",
-        wrongAnswer: "Wrong"
+        wrongAnswer: "The Magic"
     },
     {
         question: "C-3P0 is fluent in how many languages?",
         answer: "Over 60 million languages",
-        wrongAnswer: "Wrong"
+        wrongAnswer: "Over 100 million languages"
     },
     {
         question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
         answer: "Darth Sidious",
-        wrongAnswer: "Wrong"
+        wrongAnswer: "Darth Vader"
     },
     {
         question: "What is the name of Yoda’s home?",
         answer: "Dagobah",
-        wrongAnswer: "Wrong"
+        wrongAnswer: "Yavin"
     },
     {
         question: "Who is the young Jedi Knight who becomes Darth Vader?",
         answer: "Anakin Skywalker",
-        wrongAnswer: "Wrong"
+        wrongAnswer: "Luke Skywalker"
     }
 ]

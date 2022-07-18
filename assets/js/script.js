@@ -25,7 +25,7 @@ function startGame() {
     }
 }
 
-/** get the current question number and change it to the next */
+/** get the current question number and change it to the next and get the new question */
 function populateQuestion() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
@@ -59,13 +59,39 @@ function populateQuestion() {
         default:
             break;
     }
-    console.log(newQuestion);
+
     document.getElementById("question-text").innerText = newQuestion;
 }
 
 function checkAnswer() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
+    let newQuestion;
+
+    switch (currentQuestion) {
+        case "1":
+
+
+            break;
+        case "2":
+            document.getElementById("question-number").innerText = "3";
+            newQuestion = listOfQuestions();
+            break;
+        case "3":
+            document.getElementById("question-number").innerText = "4";
+            newQuestion = listOfQuestions();
+            break;
+        case "4":
+            document.getElementById("question-number").innerText = "5";
+            newQuestion = listOfQuestions();
+            break;
+        case "5":
+            document.getElementById("question-number").innerText = "5";
+            newQuestion = listOfQuestions();
+            break;
+        default:
+            break;
+    }
 
 }
 
@@ -74,33 +100,31 @@ function updateScore() {
     let incorrect = document.getElementById("incorrect").innerText;
 }
 
+/** check the current question number and return the question */
 function listOfQuestions() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
     let questionToReturn;
 
-    let questions = ["question1", "question2"]
-
     switch (currentQuestion) {
         case "1":
-            questionToReturn = "what do they call the invisible power that binds the galaxy together?";
+            questionToReturn = questions[0].question;
             break;
         case "2":
-            questionToReturn = "C-3P0 is fluent in how many languages?";
+            questionToReturn = questions[1].question;
             break;
         case "3":
-            questionToReturn = "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?";
+            questionToReturn = questions[2].question;;
             break;
         case "4":
-            questionToReturn = "What is the name of Yoda’s home?";
+            questionToReturn = questions[3].question;
             break;
         case "5":
-            questionToReturn = "Who is the young Jedi Knight who becomes Darth Vader?";
+            questionToReturn = questions[4].question;
             break;
         default:
             break;
     }
-    console.log(questionToReturn);
 
     return questionToReturn;
 }
@@ -111,3 +135,26 @@ function resetGame() {
     document.getElementById("incorrect").innerText = "0";
     populateQuestion();
 }
+
+let questions = [
+    {
+        question: "what do they call the invisible power that binds the galaxy together?",
+        answer: "The Force"
+    },
+    {
+        question: "C-3P0 is fluent in how many languages?",
+        answer: "The Force"
+    },
+    {
+        question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
+        answer: "The Force"
+    },
+    {
+        question: "What is the name of Yoda’s home?",
+        answer: "The Force"
+    },
+    {
+        question: "Who is the young Jedi Knight who becomes Darth Vader?",
+        answer: "The Force"
+    }
+]

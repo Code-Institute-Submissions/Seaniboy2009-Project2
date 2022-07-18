@@ -7,11 +7,22 @@ body {
 h1 {
     font-size: 200%;
     padding: 1%;
+    margin: 0;
+}
+
+h2 {
+    font-size: 200%;
+    padding: 1%;
+    margin: 0;
+}
+
+p {
+    font-size: 120%;
 }
 
 .image-main {
     max-height: 30%;
-    max-width: 30%;
+    max-width: 50%;
     padding: 1%;
 }
 
@@ -36,13 +47,28 @@ h1 {
 
 .answer-area {
     max-height: 30%;
-    max-width: 30%;
     padding: 1%;
+}
+
+.score {
+    display: inline-block;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#correct {
+    color: #36a836;
+}
+
+#incorrect {
+    color: #ca2727;
 }
 
 button {
     background-color: #b1b1b1;
     color: #3d3d3d;
+    font-size: 140%;
+    display: inline-block;
 }
 
 button:hover {

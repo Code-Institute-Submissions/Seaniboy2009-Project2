@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
 
             if (this.getAttribute("data-type") === "submit") {
-                populateQuestion();
+                checkAnswer();
             } else {
                 resetGame();
             }
@@ -30,74 +30,133 @@ function populateQuestion() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
     let newQuestion;
+    let newAnswer;
+    let wrongAnswer;
 
     switch (currentQuestion) {
         case "0":
             document.getElementById("question-number").innerText = "1";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         case "1":
             document.getElementById("question-number").innerText = "2";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         case "2":
             document.getElementById("question-number").innerText = "3";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         case "3":
             document.getElementById("question-number").innerText = "4";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         case "4":
             document.getElementById("question-number").innerText = "5";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         case "5":
             document.getElementById("question-number").innerText = "5";
-            newQuestion = listOfQuestions();
+            newQuestion = listOfQuestions().question;
+            newAnswer = listOfQuestions().answer;
+            wrongAnswer = listOfQuestions().wrongAnswer;
             break;
         default:
             break;
     }
 
     document.getElementById("question-text").innerText = newQuestion;
+    document.getElementById("answer1-text").innerText = newAnswer;
+    document.getElementById("answer1").value = newAnswer;
+
+    document.getElementById("answer2-text").innerText = wrongAnswer;
+    document.getElementById("answer2").value = wrongAnswer;
+
 }
 
 function checkAnswer() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
-    let newQuestion;
+    let check1 = document.getElementById("answer1");
+    let check2 = document.getElementById("answer2");
+
+    let userAnswer;
+
+    if (check1.checked) {
+        userAnswer = check1.value;
+
+    } else if (check2.checked) {
+        userAnswer = check2.value;
+    } else {
+        console.log("User answer not defined");
+    }
 
     switch (currentQuestion) {
         case "1":
-
-
+            if (userAnswer === questions[0].answer) {
+                correctAnswer();
+            } else {
+                incorrectAnswer();
+            }
             break;
         case "2":
-            document.getElementById("question-number").innerText = "3";
-            newQuestion = listOfQuestions();
+            if (userAnswer === questions[1].answer) {
+                correctAnswer();
+
+            } else {
+                incorrectAnswer();
+            }
             break;
         case "3":
-            document.getElementById("question-number").innerText = "4";
-            newQuestion = listOfQuestions();
+            if (userAnswer === questions[2].answer) {
+                correctAnswer();
+
+            } else {
+                incorrectAnswer();
+            }
             break;
         case "4":
-            document.getElementById("question-number").innerText = "5";
-            newQuestion = listOfQuestions();
+            if (userAnswer === questions[3].answer) {
+                correctAnswer();
+
+            } else {
+                incorrectAnswer();
+            }
             break;
         case "5":
-            document.getElementById("question-number").innerText = "5";
-            newQuestion = listOfQuestions();
+            if (userAnswer === questions[4].answer) {
+                correctAnswer();
+
+            } else {
+                incorrectAnswer();
+            }
             break;
         default:
             break;
     }
 
+    populateQuestion();
 }
 
-function updateScore() {
+function correctAnswer() {
     let correct = document.getElementById("correct").innerText;
+    document.getElementById("correct").innerText = ++correct;
+
+}
+
+function incorrectAnswer() {
     let incorrect = document.getElementById("incorrect").innerText;
+    document.getElementById("incorrect").innerText = ++incorrect;
+
 }
 
 /** check the current question number and return the question */
@@ -108,19 +167,19 @@ function listOfQuestions() {
 
     switch (currentQuestion) {
         case "1":
-            questionToReturn = questions[0].question;
+            questionToReturn = questions[0];
             break;
         case "2":
-            questionToReturn = questions[1].question;
+            questionToReturn = questions[1];
             break;
         case "3":
-            questionToReturn = questions[2].question;;
+            questionToReturn = questions[2];
             break;
         case "4":
-            questionToReturn = questions[3].question;
+            questionToReturn = questions[3];
             break;
         case "5":
-            questionToReturn = questions[4].question;
+            questionToReturn = questions[4];
             break;
         default:
             break;
@@ -136,25 +195,29 @@ function resetGame() {
     populateQuestion();
 }
 
-let questions = [
-    {
+let questions = [{
         question: "what do they call the invisible power that binds the galaxy together?",
-        answer: "The Force"
+        answer: "The Force",
+        wrongAnswer: "Wrong"
     },
     {
         question: "C-3P0 is fluent in how many languages?",
-        answer: "The Force"
+        answer: "Over 60 million languages",
+        wrongAnswer: "Wrong"
     },
     {
         question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
-        answer: "The Force"
+        answer: "Darth Sidious",
+        wrongAnswer: "Wrong"
     },
     {
         question: "What is the name of Yoda’s home?",
-        answer: "The Force"
+        answer: "Dagobah",
+        wrongAnswer: "Wrong"
     },
     {
         question: "Who is the young Jedi Knight who becomes Darth Vader?",
-        answer: "The Force"
+        answer: "Anakin Skywalker",
+        wrongAnswer: "Wrong"
     }
 ]

@@ -33,17 +33,19 @@
 
         <!-- answer area -->
         <div class="answer-area bx-bo">
-            <label for="answer1" id="answer1-text">Answer 1</label>
-            <input type="radio" name="answer" id="answer1">
-            <br>
-            <label for="answer2" id="answer2-text">Answer 2</label>
-            <input type="radio" name="answer" id="answer2">
+            <form id="form">
+                <label for="answer1" id="answer1-text">Answer 1</label>
+                <input type="radio" name="answer" id="answer1" value="" checked>
+                <br>
+                <label for="answer2" id="answer2-text">Answer 2</label>
+                <input type="radio" name="answer" id="answer2" value="">
+            </form>
         </div>
-
+        
         <!--area for user selecting answer then submitting and reseting the quiz-->
         <div class="answer-area bx-bo">
             <button data-type="reset">Click to reset quiz</button>
-            <button data-type="submit">Click to confirm answer</button>
+            <button type="submit" data-type="submit">Click to confirm answer</button>
         </div>
     </div>
 

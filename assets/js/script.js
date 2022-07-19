@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function () {
 
             if (this.getAttribute("data-type") === "submit") {
-                checkAnswer();
+                checkAnswer(this);
+                console.log(this.id);
             } else {
                 resetGame();
             }
@@ -74,31 +75,27 @@ function populateQuestion() {
             break;
     }
 
+    /** Change the question */
     document.getElementById("question-text").innerText = newQuestion;
-    document.getElementById("answer1-text").innerText = newAnswer;
-    document.getElementById("answer1").value = newAnswer;
 
-    document.getElementById("answer2-text").innerText = wrongAnswer;
-    document.getElementById("answer2").value = wrongAnswer;
+    /** Get random number to change what answer box gets what question */
+    let random = Math.floor(Math.random() * 4);
+    console.log(random);
+
+    /** Change the answers */
+    document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : wrongAnswer;
+    document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : wrongAnswer;
+    document.getElementById("answer-box3").innerText = random == 2 ? newAnswer : wrongAnswer;
+    document.getElementById("answer-box4").innerText = random == 3 ? newAnswer : wrongAnswer;
 
 }
 
-function checkAnswer() {
+/** check the answer the user has selected is the correct one for the question that is displayed */
+function checkAnswer(button) {
 
     let currentQuestion = document.getElementById("question-number").innerText;
-    let check1 = document.getElementById("answer1");
-    let check2 = document.getElementById("answer2");
 
-    let userAnswer;
-
-    if (check1.checked) {
-        userAnswer = check1.value;
-
-    } else if (check2.checked) {
-        userAnswer = check2.value;
-    } else {
-        console.log("User answer not defined");
-    }
+    let userAnswer = button.innerText;
 
     switch (currentQuestion) {
         case "1":
@@ -159,7 +156,7 @@ function incorrectAnswer() {
 
 }
 
-/** check the current question number and return the question */
+/** check the current question number and return the new question */
 function listOfQuestions() {
 
     let currentQuestion = document.getElementById("question-number").innerText;

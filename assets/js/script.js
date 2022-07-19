@@ -1,3 +1,46 @@
+/** List of questions/answers and wrong answers */
+let questions = [{
+        question: "what do they call the invisible power that binds the galaxy together?",
+        answer: "The Force",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The Magic",
+        wrongAnswer3: "The Magic",
+        wrongAnswer4: "The Magic",
+    },
+    {
+        question: "C-3P0 is fluent in how many languages?",
+        answer: "Over 60 million languages",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The Magic",
+        wrongAnswer3: "The Magic",
+        wrongAnswer4: "The Magic",
+    },
+    {
+        question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
+        answer: "Darth Sidious",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The Magic",
+        wrongAnswer3: "The Magic",
+        wrongAnswer4: "The Magic",
+    },
+    {
+        question: "What is the name of Yoda’s home?",
+        answer: "Dagobah",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The Magic",
+        wrongAnswer3: "The Magic",
+        wrongAnswer4: "The Magic",
+    },
+    {
+        question: "Who is the young Jedi Knight who becomes Darth Vader?",
+        answer: "Anakin Skywalker",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The Magic",
+        wrongAnswer3: "The Magic",
+        wrongAnswer4: "The Magic",
+    }
+];
+
 /** get the two buttons and add event lisiners, after the dom has loaded */
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
@@ -11,11 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 resetGame();
             }
-        })
+        });
     }
 
     startGame();
-})
+});
 
 function startGame() {
 
@@ -140,6 +183,7 @@ function checkAnswer(button) {
     }
 }
 
+/** if the asnwer was correct update score and show user they got the answer correct */
 function correctAnswer() {
     let correct = document.getElementById("correct").innerText;
     document.getElementById("correct").innerText = ++correct;
@@ -148,6 +192,7 @@ function correctAnswer() {
     document.getElementById("correct-incorrect").innerText = "Correct!";
 }
 
+/** if the asnwer was incorrect update incorrect score and show user they got the answer incorrect */
 function incorrectAnswer() {
     let incorrect = document.getElementById("incorrect").innerText;
     document.getElementById("incorrect").innerText = ++incorrect;
@@ -156,17 +201,40 @@ function incorrectAnswer() {
     document.getElementById("correct-incorrect").innerText = "InCorrect!";
 }
 
+/** once all questions have been answered, hide all of the elements that are not needed and change the question-heading text */
 function quizCompleted() {
 
     let correct = document.getElementById("correct").innerText;
 
+    document.getElementById("correct-incorrect").style.display = "none";
     document.getElementById("question-text").style.display = "none";
+    document.getElementById("question-number").style.display = "none";
     document.getElementById("question-heading").innerText = `Congradualtions you have completed the quiz and got ${correct} out of ${questions.length}`;
 
     document.getElementById("answer-box1").style.display = "none";
     document.getElementById("answer-box2").style.display = "none";
     document.getElementById("answer-box3").style.display = "none";
     document.getElementById("answer-box4").style.display = "none";
+}
+
+/** set all of the elements that where hiden back to being displayed, reset the score and go back to the start */
+function resetGame() {
+    document.getElementById("correct-incorrect").style.display = "";
+    document.getElementById("correct-incorrect").innerText = "";
+    document.getElementById("question-text").style.display = "";
+    document.getElementById("question-number").style.display = "";
+    document.getElementById("question-number").innerText = "0";
+    document.getElementById("question-heading").innerText = "Question";
+
+    document.getElementById("answer-box1").style.display = "";
+    document.getElementById("answer-box2").style.display = "";
+    document.getElementById("answer-box3").style.display = "";
+    document.getElementById("answer-box4").style.display = "";
+
+    document.getElementById("correct").innerText = "0";
+    document.getElementById("incorrect").innerText = "0";
+
+    populateQuestion();
 }
 
 /** check the current question number and return the new question */
@@ -197,58 +265,3 @@ function listOfQuestions() {
 
     return questionToReturn;
 }
-
-function resetGame() {
-
-    document.getElementById("question-text").style.display = "";
-    document.getElementById("answer-box1").style.display = "";
-    document.getElementById("answer-box2").style.display = "";
-    document.getElementById("answer-box3").style.display = "";
-    document.getElementById("answer-box4").style.display = "";
-    document.getElementById("question-number").innerText = "0";
-    document.getElementById("correct").innerText = "0";
-    document.getElementById("incorrect").innerText = "0";
-    populateQuestion();
-}
-
-let questions = [{
-        question: "what do they call the invisible power that binds the galaxy together?",
-        answer: "The Force",
-        wrongAnswer1: "The Magic",
-        wrongAnswer2: "The Magic",
-        wrongAnswer3: "The Magic",
-        wrongAnswer4: "The Magic",
-    },
-    {
-        question: "C-3P0 is fluent in how many languages?",
-        answer: "Over 60 million languages",
-        wrongAnswer1: "The Magic",
-        wrongAnswer2: "The Magic",
-        wrongAnswer3: "The Magic",
-        wrongAnswer4: "The Magic",
-    },
-    {
-        question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
-        answer: "Darth Sidious",
-        wrongAnswer1: "The Magic",
-        wrongAnswer2: "The Magic",
-        wrongAnswer3: "The Magic",
-        wrongAnswer4: "The Magic",
-    },
-    {
-        question: "What is the name of Yoda’s home?",
-        answer: "Dagobah",
-        wrongAnswer1: "The Magic",
-        wrongAnswer2: "The Magic",
-        wrongAnswer3: "The Magic",
-        wrongAnswer4: "The Magic",
-    },
-    {
-        question: "Who is the young Jedi Knight who becomes Darth Vader?",
-        answer: "Anakin Skywalker",
-        wrongAnswer1: "The Magic",
-        wrongAnswer2: "The Magic",
-        wrongAnswer3: "The Magic",
-        wrongAnswer4: "The Magic",
-    }
-]

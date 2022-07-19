@@ -45,9 +45,17 @@ p {
     margin-right: auto;
 }
 
+#question-heading-area>h2 {
+    display: inline-block;
+}
+
 .answer-area {
     max-height: 30%;
     padding: 1%;
+}
+
+#correct-incorrect {
+    font-size: 150%;
 }
 
 .score {

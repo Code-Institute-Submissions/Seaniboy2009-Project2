@@ -16,12 +16,15 @@
 
     <!-- Main holder for the game window-->
     <div class="main-area">
-        <div class="bx-bo">
-            <label for="name">Enter player name</label>
-            <input type="text" name="name" id="name">
-        </div>
         <div class="image-area bx-bo">
             <img id="image" class="image-main" src="assets/images/darthvader.jpg" alt="image of darth vader">
+        </div>
+
+        <!-- player input area-->
+        <div id="player-input" class="bx-bo">
+            <label for="name">Enter player name</label>
+            <input type="text" name="name" id="name" value="Player one">
+            <button id="player-input-button" data-type="name-select" aria-label="confirm name button">Confirm</button>
         </div>
 
         <!-- area for the questions title and the questions-->
@@ -32,11 +35,11 @@
         </div>
 
         <!-- answer area -->
-        <div class="answer-area bx-bo">
+        <div id="answer-button-area" class="answer-area bx-bo">
             <button data-type="submit" class="answer-box" id="answer-box1" aria-label="answer 1 button">Default</button>
-            <button data-type="submit" class="answer-box" id="answer-box2" aria-label="answer 1 button">Default</button>
-            <button data-type="submit" class="answer-box" id="answer-box3" aria-label="answer 1 button">Default</button>
-            <button data-type="submit" class="answer-box" id="answer-box4" aria-label="answer 1 button">Default</button>
+            <button data-type="submit" class="answer-box" id="answer-box2" aria-label="answer 2 button">Default</button>
+            <button data-type="submit" class="answer-box" id="answer-box3" aria-label="answer 3 button">Default</button>
+            <button data-type="submit" class="answer-box" id="answer-box4" aria-label="answer 4 button">Default</button>
         </div>
 
         <!--area for reseting the quiz and showing correct or wrong answer-->

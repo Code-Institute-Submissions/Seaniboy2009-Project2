@@ -59,14 +59,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (this.getAttribute("data-type") === "submit") {
                 checkAnswer(this);
+            } else if (this.getAttribute("data-type") === "name-select") {
+                startGame();
             } else {
                 resetGame();
             }
         });
     }
 
-    startGame();
+    newPlayer();
 });
+
+/**
+ * set the game up for new player
+ */
+ function newPlayer() {
+
+    document.getElementById("question-heading-area").style.display = "none";
+    document.getElementById("answer-button-area").style.display = "none";
+    document.getElementById("player-input").style.display = "";
+
+}
 
 /** 
  * the start function checks if the question number is 0 and starts from question 1 
@@ -74,6 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function startGame() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
+
+    document.getElementById("player-input").style.display = "none";
+    document.getElementById("question-heading-area").style.display = "";
+    document.getElementById("answer-button-area").style.display = "";
 
     if (currentQuestion === "0") {
         populateQuestion();
@@ -266,7 +283,7 @@ function resetGame() {
     document.getElementById("correct").innerText = "0";
     document.getElementById("incorrect").innerText = "0";
 
-    populateQuestion();
+    newPlayer();
 }
 
 /** 

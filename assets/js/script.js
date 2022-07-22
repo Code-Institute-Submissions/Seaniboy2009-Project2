@@ -26,7 +26,7 @@ const QUESTIONS = [{
     wrongAnswer4: "Asaj Ventress",
 },
 {
-    question: "What is the name of Yoda’s home?",
+    question: "What is the name of Yodas home?",
     answer: "Dagobah",
     wrongAnswer1: "Hoth",
     wrongAnswer2: "Bespin",
@@ -61,12 +61,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 checkAnswer(this);
             } else if (this.getAttribute("data-type") === "name-select") {
                 startGame();
-            } else {
+            } else if (this.getAttribute("data-type") === "reset-yes") {
                 resetGame();
+            } else if (this.getAttribute("data-type") === "reset-no") {
+                resetCancel();
+            } else {
+                resetConfirm(this);
             }
         });
     }
 
+    resetCancel();
     newPlayer();
 });
 
@@ -74,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
  * set the game up for new player
  */
  function newPlayer() {
-
+    
+    document.getElementById("reset").style.display = "none";
     document.getElementById("question-heading-area").style.display = "none";
     document.getElementById("answer-button-area").style.display = "none";
     document.getElementById("player-input").style.display = "";
@@ -91,6 +97,7 @@ function startGame() {
     document.getElementById("player-input").style.display = "none";
     document.getElementById("question-heading-area").style.display = "";
     document.getElementById("answer-button-area").style.display = "";
+    document.getElementById("reset").style.display = "";
 
     if (currentQuestion === "0") {
         populateQuestion();
@@ -106,10 +113,10 @@ function populateQuestion() {
     let newQuestion;
     let newAnswer;
 
-    let wrongAnswer1;
-    let wrongAnswer2;
-    let wrongAnswer3;
-    let wrongAnswer4;
+    let firstAnswer;
+    let secondAnswer;
+    let thirdAnswer;
+    let fourthAnswer;
 
     /** 
      * go through the current question number and then set it to the next question 
@@ -148,10 +155,10 @@ function populateQuestion() {
          */
         newQuestion = listOfQuestions().question;
         newAnswer = listOfQuestions().answer;
-        wrongAnswer1 = listOfQuestions().wrongAnswer1;
-        wrongAnswer2 = listOfQuestions().wrongAnswer2;
-        wrongAnswer3 = listOfQuestions().wrongAnswer3;
-        wrongAnswer4 = listOfQuestions().wrongAnswer4;
+        firstAnswer = listOfQuestions().wrongAnswer1;
+        secondAnswer = listOfQuestions().wrongAnswer2;
+        thirdAnswer = listOfQuestions().wrongAnswer3;
+        fourthAnswer = listOfQuestions().wrongAnswer4;
 
         /** 
          * Change the question
@@ -166,10 +173,10 @@ function populateQuestion() {
         /** 
          * Change the answers 
          */
-        document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : wrongAnswer1;
-        document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : wrongAnswer2;
-        document.getElementById("answer-box3").innerText = random == 2 ? newAnswer : wrongAnswer3;
-        document.getElementById("answer-box4").innerText = random == 3 ? newAnswer : wrongAnswer4;
+        document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : firstAnswer;
+        document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : secondAnswer;
+        document.getElementById("answer-box3").innerText = random == 2 ? newAnswer : thirdAnswer;
+        document.getElementById("answer-box4").innerText = random == 3 ? newAnswer : fourthAnswer;
     }
 }
 
@@ -264,6 +271,22 @@ function quizCompleted() {
     document.getElementById("answer-box4").style.display = "none";
 }
 
+function resetConfirm() {
+
+    document.getElementById("reset").style.display = "none";
+
+    document.getElementById("reset-yes").style.display = "";
+    document.getElementById("reset-no").style.display = "";
+}
+
+function resetCancel() {
+
+    document.getElementById("reset-yes").style.display = "none";
+    document.getElementById("reset-no").style.display = "none";
+
+    document.getElementById("reset").style.display = "";
+}
+
 /** 
  * set all of the elements that where hiden back to being displayed, reset the score and go back to the start 
  */
@@ -283,6 +306,7 @@ function resetGame() {
     document.getElementById("correct").innerText = "0";
     document.getElementById("incorrect").innerText = "0";
 
+    resetCancel();
     newPlayer();
 }
 

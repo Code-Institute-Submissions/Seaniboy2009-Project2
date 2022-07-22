@@ -52,10 +52,10 @@ The application/page has been tested on 3 validators for html, css and javascrip
 
 - __Code__
     - HTML
-        - Tested html code though [W3C validator](https://validator.w3.org/nu/#textarea)
+        - Tested html code though [W3C validator](https://validator.w3.org)
         - Formatted code with GitPod
     - CSS
-         - Tested css code though [Jigsaw](https://jigsaw.w3.org/css-validator/validator)
+         - Tested css code though [Jigsaw](https://jigsaw.w3.org/css-validator)
          - Formatted code with GitPod
     - Javascript
          - Tested css code though [jshint](https://jshint.com/)

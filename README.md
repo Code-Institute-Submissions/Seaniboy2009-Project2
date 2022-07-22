@@ -70,7 +70,7 @@ The application/page has been tested on 3 validators for html, css and javascrip
 
 - Lighthouse accessibility, the accessibility is not 100% because there is no text for the social icons, But there is not supposed to be otherwise this score would be 100%
 
-![Performance](docs/wireframe/Lighthouse.PNG)
+![Performance](docs/wireframe/lighthouse.PNG)
 
 ## Deployment
 

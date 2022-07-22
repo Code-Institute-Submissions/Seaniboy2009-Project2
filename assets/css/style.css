@@ -1,5 +1,5 @@
 body {
-    background-color: #b1b1b1;
+    background-color: #ffffff;
     color: #3d3d3d;
     text-align: center;
 }
@@ -28,7 +28,7 @@ p {
 
 /* main style for the holding container(div) of the game area */
 .main-area {
-    background-color: #b1b1b1;
+    background-color: #d6d6d6;
     border: 2px solid #000000;
     max-width: 65%;
     box-sizing: border-box;

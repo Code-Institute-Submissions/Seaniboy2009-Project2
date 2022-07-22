@@ -1,4 +1,4 @@
-/** get the two buttons and add event lisiners, after the dom has loaded */
+/** get the two buttons and add event liseners, after the dom has loaded */
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
@@ -76,7 +76,7 @@ function populateQuestion() {
         /** Change the question */
         document.getElementById("question-text").innerText = newQuestion;
 
-        /** Get random number to change what answer box gets what question */
+        /** Get random number to change what answer box gets what answer */
         let random = Math.floor(Math.random() * 4);
 
         /** Change the answers */
@@ -182,7 +182,7 @@ function quizCompleted() {
     document.getElementById("correct-incorrect").style.display = "none";
     document.getElementById("question-text").style.display = "none";
     document.getElementById("question-number").style.display = "none";
-    document.getElementById("question-heading").innerText = `Congradualtions ${name}, you have completed the quiz and got ${correct} out of ${questions.length}`;
+    document.getElementById("question-heading").innerText = `congratulations ${name}, you have completed the quiz and got ${correct} out of ${questions.length}`;
 
     document.getElementById("answer-box1").style.display = "none";
     document.getElementById("answer-box2").style.display = "none";

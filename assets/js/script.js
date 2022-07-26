@@ -2,54 +2,54 @@
  * List of questions/answers and wrong answers 
  */
 const QUESTIONS = [{
-    question: "what do they call the invisible power that binds the galaxy together?",
-    answer: "The Force",
-    wrongAnswer1: "The Magic",
-    wrongAnswer2: "The wills",
-    wrongAnswer3: "The light side",
-    wrongAnswer4: "The dark side",
-},
-{
-    question: "C-3P0 is fluent in how many languages?",
-    answer: "Over 60 million languages",
-    wrongAnswer1: "Over 10 million languages",
-    wrongAnswer2: "Over 90 million languages",
-    wrongAnswer3: "Over 150 million languages",
-    wrongAnswer4: "Over 250 million languages",
-},
-{
-    question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
-    answer: "Darth Sidious",
-    wrongAnswer1: "Darth Vader",
-    wrongAnswer2: "Darth Maul",
-    wrongAnswer3: "Count Dooku",
-    wrongAnswer4: "Asaj Ventress",
-},
-{
-    question: "What is the name of Yodas home?",
-    answer: "Dagobah",
-    wrongAnswer1: "Hoth",
-    wrongAnswer2: "Bespin",
-    wrongAnswer3: "Yavin",
-    wrongAnswer4: "Endor",
-},
-{
-    question: "Who is the young Jedi Knight who becomes Darth Vader?",
-    answer: "Anakin Skywalker",
-    wrongAnswer1: "Luke Skywalker",
-    wrongAnswer2: "Obi-Wan Kenobi",
-    wrongAnswer3: "Mace Windu",
-    wrongAnswer4: "Plo-Kun",
-}
+        question: "what do they call the invisible power that binds the galaxy together?",
+        answer: "The Force",
+        wrongAnswer1: "The Magic",
+        wrongAnswer2: "The wills",
+        wrongAnswer3: "The light side",
+        wrongAnswer4: "The dark side",
+    },
+    {
+        question: "C-3P0 is fluent in how many languages?",
+        answer: "Over 60 million languages",
+        wrongAnswer1: "Over 10 million languages",
+        wrongAnswer2: "Over 90 million languages",
+        wrongAnswer3: "Over 150 million languages",
+        wrongAnswer4: "Over 250 million languages",
+    },
+    {
+        question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
+        answer: "Darth Sidious",
+        wrongAnswer1: "Darth Vader",
+        wrongAnswer2: "Darth Maul",
+        wrongAnswer3: "Count Dooku",
+        wrongAnswer4: "Asaj Ventress",
+    },
+    {
+        question: "What is the name of Yodas home?",
+        answer: "Dagobah",
+        wrongAnswer1: "Hoth",
+        wrongAnswer2: "Bespin",
+        wrongAnswer3: "Yavin",
+        wrongAnswer4: "Endor",
+    },
+    {
+        question: "Who is the young Jedi Knight who becomes Darth Vader?",
+        answer: "Anakin Skywalker",
+        wrongAnswer1: "Luke Skywalker",
+        wrongAnswer2: "Obi-Wan Kenobi",
+        wrongAnswer3: "Mace Windu",
+        wrongAnswer4: "Plo-Kun",
+    }
 ];
 
 /** 
- * this is to check if the quiz has finsihed or not, this allowes the game to be stopped without creating errors in the code 
+ * this is to check if the quiz has finished or not, this allows the game to be stopped without creating errors in the code 
  */
- let quizEnded = false;
+let quizEnded = false;
 
 /** 
- * get the all buttons and add event liseners, after the dom has loaded 
+ * get all buttons and add event liseners after the dom has loaded 
  */
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
@@ -76,10 +76,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /**
- * set the game up for new player
+ * set the game up for new player / this will change all of the text and displays back to start
  */
- function newPlayer() {
-    
+function newPlayer() {
+
     document.getElementById("reset").style.display = "none";
     document.getElementById("question-heading-area").style.display = "none";
     document.getElementById("answer-button-area").style.display = "none";
@@ -161,17 +161,17 @@ function populateQuestion() {
         fourthAnswer = listOfQuestions().wrongAnswer4;
 
         /** 
-         * Change the question
+         * Change the question text
          */
         document.getElementById("question-text").innerText = newQuestion;
 
         /** 
-         * Get random number to change what answer box gets what answer 
+         * Get random number to change what answer box gets what answers
          */
         let random = Math.floor(Math.random() * 4);
 
         /** 
-         * Change the answers 
+         * Change the answers for the new question
          */
         document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : firstAnswer;
         document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : secondAnswer;
@@ -181,7 +181,7 @@ function populateQuestion() {
 }
 
 /** 
- * check the answer the user has selected is the correct one for the question that is displayed 
+ * checks the answer is correct for the current question
  */
 function checkAnswer(button) {
 
@@ -218,7 +218,7 @@ function checkAnswer(button) {
 }
 
 /** 
- * if the asnwer was correct update score and show user they got the answer correct 
+ * if the answer was correct update score and show user they got the answer correct 
  */
 function correctAnswer() {
 
@@ -230,7 +230,7 @@ function correctAnswer() {
 }
 
 /** 
- * if the asnwer was incorrect update incorrect score and show user they got the answer incorrect 
+ * if the answer was wrong update incorrect score and show the user they got the answer wrong 
  */
 function incorrectAnswer() {
 
@@ -271,6 +271,9 @@ function quizCompleted() {
     document.getElementById("answer-box4").style.display = "none";
 }
 
+/** 
+ * confirming the reset of the game
+ */
 function resetConfirm() {
 
     document.getElementById("reset").style.display = "none";
@@ -279,6 +282,9 @@ function resetConfirm() {
     document.getElementById("reset-no").style.display = "";
 }
 
+/** 
+ * cancel the reset of the game
+ */
 function resetCancel() {
 
     document.getElementById("reset-yes").style.display = "none";

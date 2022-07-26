@@ -45,10 +45,15 @@ This quiz is designed to test users knowledge of the star wars franchise, it doe
 
 ![Header](docs/wireframe/maincompleted.PNG)
 
+## Future Features
+
+- More questions to answer, 20 - 30.
+- Add a score board that will save each players name and update if its the same player
+- Changing image to match/give hint to the play about the current question.
 
 ## Testing
 
-The application/page has been tested on 3 validators for html, css and javascript. A media query has been crertaed for mobile devices to stop the button selection form appearing on mouse over, this was appearing on clicking it and would stay when the next question was generated.
+The application/page has been tested on 3 validators for html, css and javascript. A media query has been created for mobile devices to stop the button selection from appearing on mouse over.
 
 - Made sure that when a correct answer was selected it would always show as correct, and if a wrong answer was selected it would always show as wrong.
 - Tested on PC, laptop and mobile phone(Samsung s20), also on chrome tools.
@@ -84,16 +89,20 @@ __Accessibility__
 
 ## Deployment
 
-GitPod was used to create then using git add, commit and push to GitHub to deploy [Live version](https://seaniboy2009.github.io/Project2/).
+- GitPod was used to create then using git add, commit and push to GitHub to deploy [Live version](https://seaniboy2009.github.io/Project2/).
 
- - Deployment was made from GitHub pages > settings > pages > select branch:main > save
+- GitHub
+    - Deployment was made from GitHub pages > settings > pages > select branch:main > save
+
+- GitPod
+    - Deployment was made from GitPod to GitHub > git add . > git commit -m > git push
 
 ## Credits
 
 - __References__
 
 - Media
-    - Google.com - for darth vader image - https://www.giantfreakinrobot.com/ent/darth-vader-tv-series.html
+    - Google.com / giantfreakinrobot.com - for darth vader image - https://www.giantfreakinrobot.com/ent/darth-vader-tv-series.html
 
 - Text/Information
     - questions from - https://bigquizthing.com/blog-post/star-wars-trivia-questions-for-fun-game-night/

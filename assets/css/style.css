@@ -35,7 +35,7 @@ p {
     margin-right: auto;
 }
 
-/* style for divs in the main game area, to give them equal space and style*/
+/* style for divs in the main game area, to give them equal space and style */
 .bx-bo {
     max-height: 30%;
     padding: 1%;
@@ -54,6 +54,7 @@ p {
     padding: 1%;
 }
 
+/* style for the answer buttons */
 .answer-box {
     display: block;
     margin-left: auto;
@@ -91,6 +92,7 @@ button {
     font-size: 120%;
 }
 
+/* Style for mouse over only on laptops and up */
 @media only screen and (min-width: 720px) {
 
     button:hover {

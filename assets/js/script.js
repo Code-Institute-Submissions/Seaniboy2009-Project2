@@ -11,11 +11,11 @@ const QUESTIONS = [{
     },
     {
         question: "C-3P0 is fluent in how many languages?",
-        answer: "Over 60 million languages",
-        wrongAnswer1: "Over 10 million languages",
-        wrongAnswer2: "Over 90 million languages",
-        wrongAnswer3: "Over 150 million languages",
-        wrongAnswer4: "Over 250 million languages",
+        answer: "60 million languages",
+        wrongAnswer1: "10 million languages",
+        wrongAnswer2: "90 million languages",
+        wrongAnswer3: "150 million languages",
+        wrongAnswer4: "250 million languages",
     },
     {
         question: "Who killed the four Jedi Masters: Saesee Tinn, Mace Windu, Kit Fisto, and Agen Kolar?",
@@ -48,10 +48,13 @@ const QUESTIONS = [{
  */
 let quizEnded = false;
 
+document.addEventListener("DOMContentLoaded", setButtonsAndEvents);
+
 /** 
  * get all buttons and add event liseners after the dom has loaded 
  */
-document.addEventListener("DOMContentLoaded", function () {
+function setButtonsAndEvents() {
+
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
@@ -73,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     resetCancel();
     newPlayer();
-});
+}
 
 /**
  * set the game up for new player / this will change all of the text and displays back to start
@@ -110,13 +113,6 @@ function startGame() {
 function populateQuestion() {
 
     let currentQuestion = document.getElementById("question-number").innerText;
-    let newQuestion;
-    let newAnswer;
-
-    let firstAnswer;
-    let secondAnswer;
-    let thirdAnswer;
-    let fourthAnswer;
 
     /** 
      * go through the current question number and then set it to the next question 
@@ -149,35 +145,38 @@ function populateQuestion() {
      * if game is not completed 
      */
     if (!quizEnded) {
-
-        /** 
-         * get all of the questions and answers and then assign them 
-         */
-        newQuestion = listOfQuestions().question;
-        newAnswer = listOfQuestions().answer;
-        firstAnswer = listOfQuestions().wrongAnswer1;
-        secondAnswer = listOfQuestions().wrongAnswer2;
-        thirdAnswer = listOfQuestions().wrongAnswer3;
-        fourthAnswer = listOfQuestions().wrongAnswer4;
-
-        /** 
-         * Change the question text
-         */
-        document.getElementById("question-text").innerText = newQuestion;
-
-        /** 
-         * Get random number to change what answer box gets what answers
-         */
-        let random = Math.floor(Math.random() * 4);
-
-        /** 
-         * Change the answers for the new question
-         */
-        document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : firstAnswer;
-        document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : secondAnswer;
-        document.getElementById("answer-box3").innerText = random == 2 ? newAnswer : thirdAnswer;
-        document.getElementById("answer-box4").innerText = random == 3 ? newAnswer : fourthAnswer;
+        changeQuestionText();
     }
+}
+
+/** 
+ * get all of the questions and answers and then assign them 
+ */
+function changeQuestionText() {
+
+    let newQuestion;
+    let newAnswer;
+
+    let firstAnswer;
+    let secondAnswer;
+    let thirdAnswer;
+    let fourthAnswer;
+
+    newQuestion = listOfQuestions().question;
+    newAnswer = listOfQuestions().answer;
+    firstAnswer = listOfQuestions().wrongAnswer1;
+    secondAnswer = listOfQuestions().wrongAnswer2;
+    thirdAnswer = listOfQuestions().wrongAnswer3;
+    fourthAnswer = listOfQuestions().wrongAnswer4;
+
+    document.getElementById("question-text").innerText = newQuestion;
+
+    let random = Math.floor(Math.random() * 4);
+
+    document.getElementById("answer-box1").innerText = random == 0 ? newAnswer : firstAnswer;
+    document.getElementById("answer-box2").innerText = random == 1 ? newAnswer : secondAnswer;
+    document.getElementById("answer-box3").innerText = random == 2 ? newAnswer : thirdAnswer;
+    document.getElementById("answer-box4").innerText = random == 3 ? newAnswer : fourthAnswer;
 }
 
 /** 
@@ -248,9 +247,8 @@ function getName() {
 
     let name;
 
-    if(document.getElementById("name").value == "")
-    {
-        name = "Player"
+    if (document.getElementById("name").value == "") {
+        name = "Player";
     } else {
         name = document.getElementById("name").value;
     }
@@ -276,17 +274,24 @@ function quizCompleted() {
     document.getElementById("answer-box2").style.display = "none";
     document.getElementById("answer-box3").style.display = "none";
     document.getElementById("answer-box4").style.display = "none";
+    document.getElementById("reset").innerText = "Quiz completed";
 }
 
 /** 
- * confirming the reset of the game
+ * confirming the reset of the game / if completed then reset without prompt
  */
 function resetConfirm() {
 
-    document.getElementById("reset").style.display = "none";
+    if (quizEnded) {
 
-    document.getElementById("reset-yes").style.display = "";
-    document.getElementById("reset-no").style.display = "";
+        resetGame();
+    } else {
+
+        document.getElementById("reset").style.display = "none";
+
+        document.getElementById("reset-yes").style.display = "";
+        document.getElementById("reset-no").style.display = "";
+    }
 }
 
 /** 
@@ -318,6 +323,7 @@ function resetGame() {
     document.getElementById("answer-box4").style.display = "";
     document.getElementById("correct").innerText = "0";
     document.getElementById("incorrect").innerText = "0";
+    document.getElementById("reset").innerText = "Reset quiz";
 
     resetCancel();
     newPlayer();

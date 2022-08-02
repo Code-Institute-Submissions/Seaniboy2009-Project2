@@ -242,11 +242,18 @@ function incorrectAnswer() {
 }
 
 /** 
- * get the name of the user that was entered into the input field 
+ * get the name of the user that was entered into the input field if no name, set to Player
  */
 function getName() {
 
-    let name = document.getElementById("name").value;
+    let name;
+
+    if(document.getElementById("name").value == "")
+    {
+        name = "Player"
+    } else {
+        name = document.getElementById("name").value;
+    }
 
     return name;
 }
@@ -264,7 +271,7 @@ function quizCompleted() {
     document.getElementById("correct-incorrect").style.display = "none";
     document.getElementById("question-text").style.display = "none";
     document.getElementById("question-number").style.display = "none";
-    document.getElementById("question-heading").innerText = `Congratulations ${name}, you have completed the quiz and got ${CORRECT} out of ${QUESTIONS.length}`;
+    document.getElementById("question-heading").innerText = `Congratulations ${name}, you have completed the quiz and got ${CORRECT} out of ${QUESTIONS.length} questions correct`;
     document.getElementById("answer-box1").style.display = "none";
     document.getElementById("answer-box2").style.display = "none";
     document.getElementById("answer-box3").style.display = "none";

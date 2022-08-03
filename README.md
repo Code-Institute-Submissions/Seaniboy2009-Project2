@@ -19,6 +19,9 @@ This quiz is designed to test users knowledge of the star wars franchise, it doe
     - Heading
     - User input field
         - User can enter a name that will then appear when the quiz is completed
+
+![Header](docs/wireframe/mainuserinput.png)
+
     - Image that matches the quiz
     - Question number
         - Shows what question the user is on
@@ -50,6 +53,15 @@ This quiz is designed to test users knowledge of the star wars franchise, it doe
 - More questions to answer, 20 - 30.
 - Add a score board that will save each players name and update if its the same player
 - Changing image to match/give hint to the play about the current question.
+
+## Technology
+
+- HTML
+    - HTML was used for the main structure of the page, as well as buttons
+- CSS
+    - CSS was used to make the page presentable
+- JavaScript
+    - JS was used to give functonality to the page, in the form of functioning buttons, giving the questions and answers for the player to interact with and providing feedback to the player
 
 ## Testing
 
@@ -103,6 +115,7 @@ __Accessibility__
 
 - Media
     - Google.com / giantfreakinrobot.com - for darth vader image - https://www.giantfreakinrobot.com/ent/darth-vader-tv-series.html
+    - Google.com / pinterest - for favicon - https://www.pinterest.co.uk/pin/vader-pfp-9--693624780095743575/
 
 - Text/Information
     - questions from - https://bigquizthing.com/blog-post/star-wars-trivia-questions-for-fun-game-night/
